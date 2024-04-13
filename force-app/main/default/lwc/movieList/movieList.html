@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="Movie List 16">
+        <template if:true={movies}>
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr class="slds-text-heading_label">
+                        <th scope="col">Poster</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Year</th>
+                        <th scope="col">IMDB Id</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={movies} for:item="movie">
+                        <tr key={movie.imdbID}>
+                            <td data-label="Poster">
+                                <img src={movie.poster} alt={movie.title} class="slds-avatar slds-avatar_medium" />
+                            </td>
+                            <td data-label="Title">{movie.title}</td>
+                            <td data-label="Year">{movie.year}</td>
+                            <td data-label="imdbID">{movie.imdbID}</td>
+                            <td data-label="type">{movie.Type}</td>
+                            <td data-label="Year">
+                                <lightning-button label="view" variant="brand" onclick={handleView}
+                                    data-id={movie.imdbID}></lightning-button>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,26 @@
+<!-- movieDetails.html -->
+<template>
+    <lightning-card title="Movie Details">
+        <template if:true={selectedMovie}>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <template if:true={selectedMovie.poster}>
+                        <img src={selectedMovie.poster} alt={selectedMovie.title} class="slds-image_large" />
+                    </template>
+                    <template if:false={selectedMovie.poster}>
+                        <!-- Placeholder or default image if no poster is available -->
+                        <img src="default_image_url" alt="Placeholder" class="slds-image_large" />
+                    </template>
+                </div>
+                <div class="slds-col">
+                    <p><b>Title:</b> {selectedMovie.title}</p>
+                    <p><b>Year:</b> {selectedMovie.year}</p>
+                    <!-- Add more fields as needed -->
+                </div>
+            </div>
+        </template>
+        <template if:false={selectedMovie}>
+            <p>No movie selected</p>
+        </template>
+    </lightning-card>
+</template>

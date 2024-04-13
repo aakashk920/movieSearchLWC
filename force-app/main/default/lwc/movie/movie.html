@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="Movie Search App 22">
+        <c-movie-search-api onsearchresult={handleSearchResult}></c-movie-search-api>
+        <template if:true={movies}>
+            <c-movie-list movies={movies} onview={handleView}></c-movie-list>
+            <c-movie-details selected-movie={selectedMovie}></c-movie-details>
+        </template>   
+    </lightning-card>
+</template>
